@@ -12,6 +12,18 @@ def get_indices_of_item_weights(weights, length, limit):
     """
     YOUR CODE HERE
     """
+    # Go through list of weights
+    for i in range(length):
+        # Check to see if a hash exists
+        index_1 = hash_table_retrieve(
+            ht, limit - weights[i])
+        # If there's a hash, return tuple of pair 
+        if index_1 is not None:
+            index_2 = (i, index_1)
+            return index_2
+        # Else, insert into hash table
+        else: 
+            hash_table_insert(ht, weights[i], i)
 
     return None
 
